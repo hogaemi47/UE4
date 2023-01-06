@@ -48,9 +48,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
 	UStaticMeshComponent* LeftSword;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	UStaticMeshComponent* LeftCone;
+	USkeletalMeshComponent* LeftHand;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
 	UStaticMeshComponent* RightSword;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	UStaticMeshComponent* RightCone;
+	USkeletalMeshComponent* RightHand;
 };
