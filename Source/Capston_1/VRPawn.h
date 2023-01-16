@@ -3,10 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Pawn.h"
 #include "Camera/CameraComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "MotionControllerComponent.h"
+#include "GameFramework/Pawn.h"
 #include "VRPawn.generated.h"
 
 UCLASS()
@@ -53,4 +53,13 @@ public:
 	UStaticMeshComponent* RightSword;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
 	USkeletalMeshComponent* RightHand;
+
+	//다음 레벨로 이동하기 위한 방법
+	bool Right_has_sword;
+	bool Left_has_sword;
+
+	//왼손 오른손 칼잡기
+	void GrabRightPressed();
+	void GrabLeftPressed();
+	void Movetonextlevel();
 };
