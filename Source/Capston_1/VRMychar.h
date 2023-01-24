@@ -6,17 +6,21 @@
 #include "Camera/CameraComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "MotionControllerComponent.h"
-#include "GameFramework/Pawn.h"
-#include "VRPawn.generated.h"
+#include "GameFramework/Character.h"
+#include "VRMychar.generated.h"
 
 UCLASS()
-class CAPSTON_1_API AVRPawn : public APawn
+class CAPSTON_1_API AVRMychar : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
-	AVRPawn();
+	// Sets default values for this character's properties
+	AVRMychar();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 public:	
 	// Called every frame
@@ -25,34 +29,31 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
 	//Setting VR
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	USceneComponent* VRTrackingCenter;
+		USceneComponent* VRTrackingCenter;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	UCameraComponent* VRCameraComponent;
+		UCameraComponent* VRCameraComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	UTextRenderComponent* OutputText;
+		UTextRenderComponent* OutputText;
 
 	//MotionControllerComponent
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	UMotionControllerComponent* LeftController;
+		UMotionControllerComponent* LeftController;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	UMotionControllerComponent* RightController;
+		UMotionControllerComponent* RightController;
 
 	//StaticMeshComponent
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	UStaticMeshComponent* LeftSword;
+		UStaticMeshComponent* LeftSword;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	USkeletalMeshComponent* LeftHand;
+		USkeletalMeshComponent* LeftHand;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	UStaticMeshComponent* RightSword;
+		UStaticMeshComponent* RightSword;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = __hide)
-	USkeletalMeshComponent* RightHand;
+		USkeletalMeshComponent* RightHand;
 
 	//다음 레벨로 이동하기 위한 방법
 	bool Right_has_sword;

@@ -20,4 +20,6 @@ AEast_Sword_1::AEast_Sword_1()
 
 	//Making Collsion Box
 	SwordHitBox = CreateDefaultSubobject<UBoxComponent>(TEXT("Collsion Box"));
+	RootComponent = SwordHitBox;
+	SwordHitBox->SetCollisionProfileName(TEXT("OverlapPawn"));
 }

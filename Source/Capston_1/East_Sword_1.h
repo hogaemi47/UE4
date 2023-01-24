@@ -23,5 +23,4 @@ class CAPSTON_1_API AEast_Sword_1 : public AStaticMeshActor
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Collision_Box)
 	class UBoxComponent* SwordHitBox;
-	
 };

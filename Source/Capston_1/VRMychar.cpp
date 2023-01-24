@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "VRPawn.h"
+
+#include "VRMychar.h"
 #include "Collecti.h"
 #include "Nodachi_Black.h"
 #include "Korean_Sword1.h"
@@ -14,9 +15,9 @@
 #include "XRMotionControllerBase.h"
 
 // Sets default values
-AVRPawn::AVRPawn()
+AVRMychar::AVRMychar()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+ 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	//가장 상단이 되는 부분
@@ -78,29 +79,29 @@ AVRPawn::AVRPawn()
 }
 
 // Called when the game starts or when spawned
-void AVRPawn::BeginPlay()
+void AVRMychar::BeginPlay()
 {
 	Super::BeginPlay();
 	
 }
 
 // Called every frame
-void AVRPawn::Tick(float DeltaTime)
+void AVRMychar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
 // Called to bind functionality to input
-void AVRPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+void AVRMychar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	PlayerInputComponent->BindAction("GrabRight", IE_Pressed, this, &AVRPawn::GrabRightPressed);
-	PlayerInputComponent->BindAction("GrabLeft", IE_Pressed, this, &AVRPawn::GrabLeftPressed);
+	PlayerInputComponent->BindAction("GrabRight", IE_Pressed, this, &AVRMychar::GrabRightPressed);
+	PlayerInputComponent->BindAction("GrabLeft", IE_Pressed, this, &AVRMychar::GrabLeftPressed);
 }
 
-void AVRPawn::GrabRightPressed()
+void AVRMychar::GrabRightPressed()
 {
 	//Collecti (Nodachi_white)
 	FName RightWeaponSocket = TEXT("Sword Socket");
@@ -126,7 +127,7 @@ void AVRPawn::GrabRightPressed()
 		{
 			trycast->GetStaticMeshComponent()->SetSimulatePhysics(false);
 			trycast->AttachToComponent(RightHand, FAttachmentTransformRules::SnapToTargetIncludingScale, RightWeaponSocket);
-			
+
 			if (Right_has_sword == true)
 			{
 				UE_LOG(LogTemp, Display, TEXT("Right Sword"));
@@ -184,7 +185,7 @@ void AVRPawn::GrabRightPressed()
 	}
 }
 
-void AVRPawn::GrabLeftPressed()
+void AVRMychar::GrabLeftPressed()
 {
 	//Nodachi_Black Sword
 	FName LeftWeaponSocket = TEXT("LeftSword Socket");
